@@ -1,10 +1,19 @@
 module.exports = {
   content: [
-    "./src/**/*.{html,js}",
-    "./*.html"
+    "./index.html",
+    "./src/**/*.{js,html}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: '#1D1D1D',
+        secondary: '#6C6B6B',
+      },
+      fontFamily: {
+        sans: ['Poppins', 'sans-serif'],
+        hand: ['Patrick Hand', 'cursive']
+      }
+    },
   },
   plugins: [],
   darkMode: 'class'
