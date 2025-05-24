@@ -4,8 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
   AOS.init({
     duration: 800,
     easing: "ease-in-out-quad",
-    once: true,
-    offset: 100
   });
 
   // Setup modal gambar
