@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thank You!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+      overflow: hidden;
+    }
+
+    .thank-you-container {
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 3rem 2rem;
+      border-radius: 20px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+      animation: popIn 1s ease-out forwards;
+      transform: scale(0.8);
+      opacity: 0;
+    }
+
+    h1 {
+      font-family: "Patrick Hand", cursive;
+      font-size: 3rem;
+      color: #1d1d1d;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.25rem;
+      color: #4b4b4b;
+      margin-bottom: 2rem;
+    }
+
+    a {
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.75rem 1.5rem;
+      border-radius: 9999px;
+      background: #1d1d1d;
+      color: white;
+      transition: all 0.3s ease;
+    }
+
+    a:hover {
+      background: #333;
+      transform: scale(1.05);
+    }
+
+    .bubbles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .bubble {
+      position: absolute;
+      bottom: -100px;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      animation: floatUp 10s infinite ease-in;
+    }
+
+    .bubble:nth-child(1) { left: 10%; width: 25px; height: 25px; animation-delay: 0s; }
+    .bubble:nth-child(2) { left: 25%; width: 50px; height: 50px; animation-delay: 2s; }
+    .bubble:nth-child(3) { left: 50%; width: 15px; height: 15px; animation-delay: 4s; }
+    .bubble:nth-child(4) { left: 75%; width: 30px; height: 30px; animation-delay: 6s; }
+    .bubble:nth-child(5) { left: 90%; width: 20px; height: 20px; animation-delay: 8s; }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(-110vh) scale(0.5);
+        opacity: 0;
+      }
+    }
+
+    @keyframes popIn {
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="thank-you-container">
+    <h1>Thank You! 🎉</h1>
+    <p>Your message has been successfully sent.<br/>I’ll get back to you soon!</p>
+    <a href="/">Back to Home</a>
+  </div>
+
+  <div class="bubbles">
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+  </div>
+</body>
+</html>
