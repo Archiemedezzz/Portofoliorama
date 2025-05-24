@@ -1,10 +1,26 @@
 // Fungsi untuk inisialisasi AOS (Animate On Scroll)
 document.addEventListener('DOMContentLoaded', function() {
   // Inisialisasi AOS
-  AOS.init({
-    duration: 800,
-    easing: "ease-in-out-quad",
-  });
+   if (typeof AOS !== 'undefined') {
+    AOS.init({
+      duration: 800,
+      easing: "ease-in-out-quad",
+      once: true,
+      offset: 100,
+      // Tambahkan ini untuk debugging
+      initClassName: 'aos-init',
+      animatedClassName: 'aos-animate',
+      disable: window.innerWidth < 768 // Disable di mobile jika perlu
+    });
+    
+    // Refresh AOS setelah load semua konten
+    window.addEventListener('load', function() {
+      AOS.refresh();
+    });
+  } else {
+    console.warn('AOS is not loaded');
+  }
+
 
   // Setup modal gambar
   setupImageModal();
