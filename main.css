@@ -23,42 +23,6 @@ html {
   }
 }
 
-/* Tambahkan di file CSS Anda */
-[data-aos] {
-  transition-property: opacity, transform;
-}
-
-/* Custom animasi */
-[data-aos="fade-right"] {
-  opacity: 0;
-  transform: translateX(-30px);
-}
-
-[data-aos="fade-right"].aos-animate {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-[data-aos="fade-left"] {
-  opacity: 0;
-  transform: translateX(30px);
-}
-
-[data-aos="fade-left"].aos-animate {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-[data-aos="fade-up"] {
-  opacity: 0;
-  transform: translateY(30px);
-}
-
-[data-aos="fade-up"].aos-animate {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 /* Animasi untuk progress bars */
 .fill-bar {
   width: 0;
@@ -521,7 +485,7 @@ html {
 }
 
 .dark .social-icon img,
-.dark .nav-button img, .contact-icon img {
+.dark .nav-button img, .dark .contact-icon img {
   filter: invert(1) brightness(1.5);
 }
 
