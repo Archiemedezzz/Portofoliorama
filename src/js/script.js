@@ -1,9 +1,4 @@
-import AOS from 'aos';
-import 'aos/dist/aos.css'; // Import CSS AOS
 // Fungsi untuk inisialisasi AOS (Animate On Scroll)
-window.addEventListener('load', () => {
-  AOS.refresh();
-});
 document.addEventListener('DOMContentLoaded', function() {
   
   // Inisialisasi AOS
