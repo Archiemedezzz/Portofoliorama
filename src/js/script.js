@@ -2,25 +2,6 @@
 document.addEventListener('DOMContentLoaded', function() {
   
   // Inisialisasi AOS
-   if (typeof AOS !== 'undefined') {
-    AOS.init({
-      duration: 800,
-      easing: "ease-in-out-quad",
-      once: true,
-      offset: 100,
-      // Tambahkan ini untuk debugging
-      initClassName: 'aos-init',
-      animatedClassName: 'aos-animate',
-      disable: window.innerWidth < 768 // Disable di mobile jika perlu
-    });
-    
-    // Refresh AOS setelah load semua konten
-    window.addEventListener('load', function() {
-      AOS.refresh();
-    });
-  } else {
-    console.warn('AOS is not loaded');
-  }
 
 
   // Setup modal gambar
@@ -198,3 +179,66 @@ function checkInitialTheme() {
 
   updateThemeIcons(isDark);
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  let lastScrollPosition = 0;
+  let ticking = false;
+  
+  // Elemen yang akan diamati
+  const scrollElements = document.querySelectorAll('[data-scroll="fade-up"]');
+  
+  // Intersection Observer untuk deteksi awal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+  
+  // Inisialisasi observer
+  scrollElements.forEach(el => {
+    observer.observe(el);
+  });
+  
+  // Scroll handler untuk animasi saat scroll ke bawah
+  const handleScroll = () => {
+    const currentScrollPosition = window.scrollY;
+    
+    // Hanya trigger jika scroll ke bawah
+    if (currentScrollPosition > lastScrollPosition) {
+      scrollElements.forEach(el => {
+        const elTop = el.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        
+        // Jika elemen masuk viewport saat scroll ke bawah
+        if (elTop < windowHeight * 0.75 && !el.classList.contains('is-visible')) {
+          el.classList.add('is-visible');
+        }
+      });
+    }
+    
+    lastScrollPosition = currentScrollPosition;
+    ticking = false;
+  };
+  
+  // Optimasi performa dengan requestAnimationFrame
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(handleScroll);
+      ticking = true;
+    }
+  });
+  
+  // Trigger animasi untuk elemen yang sudah terlihat saat load
+  scrollElements.forEach(el => {
+    const elTop = el.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+    
+    if (elTop < windowHeight * 0.75) {
+      el.classList.add('is-visible');
+    }
+  });
+});
