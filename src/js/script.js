@@ -5,8 +5,6 @@ document.addEventListener('DOMContentLoaded', function() {
     AOS.init({
       duration: 800,
       easing: "ease-in-out-quad",
-      once: true,
-      offset: 100,
       // Tambahkan ini untuk debugging
       initClassName: 'aos-init',
       animatedClassName: 'aos-animate',
